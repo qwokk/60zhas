@@ -1,90 +1,39 @@
 body, html {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  /* ИСПРАВЛЕНО: разрешаем прокрутку, если текст не влез */
+  overflow-y: auto; 
+  background-color: #000;
 }
 
 .invite-card {
   background: url('bg60.jpg') no-repeat center center;
   background-size: cover;
-  height: 100vh;
+  /* ИСПРАВЛЕНО: min-height вместо height, чтобы фон тянулся */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Текст в нижней части, чтобы не закрывать "60" */
-  padding-bottom: 50px;
+  /* Центрируем карточку, на мобилках это удобнее */
+  align-items: center; 
+  padding: 20px 0;
 }
 
 .overlay-content {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 30px;
   width: 85%;
   max-width: 450px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid #d4af37;
-  z-index: 10;
+  /* ИСПРАВЛЕНО: добавляем отступ снизу внутри карточки */
+  margin-bottom: 20px;
 }
 
-.pre-title {
-  letter-spacing: 3px;
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.hero-name {
-  font-family: 'Georgia', serif;
-  color: #a67c00; /* Золотисто-коричневый */
-  margin: 0;
-  font-size: 28px;
-}
-
-.divider {
-  width: 50px;
-  height: 2px;
-  background: #d4af37;
-  margin: 15px auto;
-}
-
-.event-text {
-  font-family: 'Georgia', serif;
-  line-height: 1.6;
-  color: #444;
-}
-
-.info-grid {
-  display: flex;
-  justify-content: space-around;
-  margin: 25px 0;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-}
-
-.info-item strong {
-  display: block;
-  font-size: 11px;
-  color: #d4af37;
-}
-
-.action-button {
-  background: #1a1a1a;
-  color: #d4af37;
-  border: 1px solid #d4af37;
-  padding: 12px 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.action-button:hover {
-  background: #d4af37;
-  color: white;
-}
-
-#fireworks {
-  position: absolute;
-  top: 0; left: 0;
-  pointer-events: none;
+/* Добавь это для мобилок, чтобы текст не был слишком мелким */
+@media (max-width: 480px) {
+  .hero-name { font-size: 24px; }
+  .event-text { font-size: 14px; }
+  .action-button { padding: 12px 20px; font-size: 14px; }
 }
