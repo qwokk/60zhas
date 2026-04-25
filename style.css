@@ -88,34 +88,3 @@ body, html {
   top: 0; left: 0;
   pointer-events: none;
 }
-
-/* Эффект свечения для карточки */
-.overlay-content {
-  animation: glow 3s infinite alternate;
-  position: relative;
-  z-index: 100;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
-  to { box-shadow: 0 10px 50px rgba(212, 175, 55, 0.6); }
-}
-
-/* Кнопка должна пульсировать, чтобы на неё хотелось нажать */
-.action-button {
-  border-radius: 50px; /* Скругли углы, это современно */
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Исправляем прокрутку на смартфонах */
-.invite-card {
-  min-height: 100vh;
-  height: auto;
-  padding-top: 50vh; /* Спускаем текст ниже, чтобы сначала видели цифру 60 */
-}
